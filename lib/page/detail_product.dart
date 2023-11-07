@@ -12,61 +12,55 @@ class DetailProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff000000),
-      body: GridView(
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+      body: Column(
         children: [
-          Column(
+          Stack(
             children: [
-              Stack(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height / 2.1,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                      color: Color(0xff000000),
-                      image: DecorationImage(
-                        image: AssetImage('assets/bgDetailProduct.png'),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(80),
-                      child: Image.asset(
-                        item['image'],
-                      ),
-                    ),
+              Container(
+                height: MediaQuery.of(context).size.height / 2.1,
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  color: Color(0xff000000),
+                  image: DecorationImage(
+                    image: AssetImage('assets/bgDetailProduct.png'),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 45, horizontal: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return const MainPage();
-                                },
-                              ),
-                            );
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_outlined,
-                            color: Color(0xffffffff),
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          color: const Color(0xffffffff),
-                          icon: const Icon(Icons.shopping_cart_outlined),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(80),
+                  child: Image.asset(
+                    item['image'],
+                  ),
+                ),
               ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 45, horizontal: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const MainPage();
+                            },
+                          ),
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back_outlined,
+                        color: Color(0xffffffff),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      color: const Color(0xffffffff),
+                      icon: const Icon(Icons.shopping_cart_outlined),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
           Container(
